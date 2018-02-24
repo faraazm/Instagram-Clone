@@ -1,0 +1,28 @@
+/*
+AUTH ACTIONS
+*/
+
+export const SIGN_IN_REQUEST = 'SIGN_IN_REQUEST';
+export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS';
+export const SIGN_IN_FAILURE = 'SIGN_IN_FAILURE';
+
+export const SIGN_UP_REQUEST = 'SIGN_UP_REQUEST';
+export const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS';
+export const SIGN_UP_FAILURE = 'SIGN_UP_FAILURE';
+
+export const SIGN_OUT_SUCCESS = 'SIGN_OUT';
+export const REMOVE_ALERTS = 'REMOVE_ALERTS';
+
+/*
+PHOTO ACTIONS
+*/
+
+export const UPLOAD_SUCCESS = 'UPLOAD_SUCCESS';
+export const FETCH_PHOTOS = 'FETCH_PHOTOS';
+export const DELETE_PHOTO = 'DELETE_PHOTO';
+
+/*
+USER ACTIONS
+*/
+
+export const FETCH_CURRENT_USER = 'FETCH_CURRENT_USER';

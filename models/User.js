@@ -8,7 +8,9 @@ const userSchema = new Schema({
 	password: { type: String, required: true },
 	firstName: { type: String, required: true },
 	lastName: { type: String, required: true },
-	profilePic: { data: Buffer, contentType: String }
+	profilePic: { type: String, default: 'https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png' },
+	followers: [Schema.Types.ObjectId],
+	following: [Schema.Types.ObjectId]
 });
 
 userSchema.pre('save', async function(next) {

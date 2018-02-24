@@ -1,7 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
-const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
@@ -10,6 +9,7 @@ const passport = require('passport');
 const cors = require('cors');
 
 require('./models/User');
+require('./models/Post');
 
 mongoose.connect(keys.mongoURI, (err) => {
 	if(err) throw err
@@ -18,8 +18,11 @@ mongoose.connect(keys.mongoURI, (err) => {
 
 //Routes
 const index = require('./routes/index');
+const user = require('./routes/users');
+const auth = require('./routes/auth');
 
 const app = express();
+console.log(__dirname);
 app.use(cors());
 
 app.use(passport.initialize());
@@ -31,6 +34,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/api', index);
+app.use('/api/user', user);
+app.use('/api/auth', auth);
 
 if(process.env.NODE_ENV === 'production'){
 	app.use(express.static('client/build'));
